@@ -42,9 +42,9 @@ Projenin veritabanı şeması ve başlangıç verileri için migration işlemi y
 
   ContactInfoTypeEnum ve ReportStatusEnum enum değerleri veritabanına eklenmelidir. PostgreSQL'e aşağıdaki SQL komutlarını çalıştırarak bu verileri ekleyebilirsiniz:
 
-     insert into public."ReportStatus" values (1, 'Bekliyor');
-     insert into public."ReportStatus" values (2, 'Tamamlandı');
-     insert into public."ReportStatus" values (3, 'Hata');
+     insert into public."ReportStatus" values (1, 'Pending');
+     insert into public."ReportStatus" values (2, 'Completed');
+     insert into public."ReportStatus" values (3, 'Failed');
   
      insert into public."ContactInfoType" values (1, 'Location');
      insert into public."ContactInfoType" values (2, 'PhoneNumber');
