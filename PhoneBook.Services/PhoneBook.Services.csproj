@@ -10,4 +10,9 @@
     <Folder Include="IServices\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PhoneBook.Common\PhoneBook.Common.csproj" />
+    <ProjectReference Include="..\PhoneBook.Data\PhoneBook.Data.csproj" />
+  </ItemGroup>
+
 </Project>

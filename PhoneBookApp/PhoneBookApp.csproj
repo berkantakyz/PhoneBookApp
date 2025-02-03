@@ -14,4 +14,9 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PhoneBook.Common\PhoneBook.Common.csproj" />
+    <ProjectReference Include="..\PhoneBook.Services\PhoneBook.Services.csproj" />
+  </ItemGroup>
+
 </Project>
