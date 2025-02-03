@@ -1,6 +1,6 @@
 # PhoneBookApp
 
-Proje Açıklaması
+*Proje Açıklaması*
 
 PhoneBook API, kişisel bilgileri (telefon numarası, adres, e-posta gibi) depolayan ve raporlama süreçlerini yöneten bir web API'sidir. API, PostgreSQL veritabanı ve Kafka kullanarak veri akışını yönetir.
 
