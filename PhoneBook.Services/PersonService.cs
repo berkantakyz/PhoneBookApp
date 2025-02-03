@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PhoneBook.Common.Exceptions.Person;
+using PhoneBook.Common.Infrastructure;
 using PhoneBook.Common.Models;
 using PhoneBook.Common.Request;
 using PhoneBook.Common.Response;
@@ -32,6 +34,8 @@ namespace PhoneBook.Services
         {
             var person = await _context.Person.FindAsync(id);
 
+            Guard.IsNull(person, new PersonNotFoundException(id));
+
             _context.Person.Remove(person);
             await _context.SaveChangesAsync();
 
@@ -41,6 +45,8 @@ namespace PhoneBook.Services
         public async Task<BaseResponse> GetPersons()
         {
             var persons = await _context.Person.ToListAsync();
+            
+            Guard.IsNullOrEmpty(persons, new PersonNotFoundException());
 
             return new BaseResponse(persons);
         }
@@ -48,6 +54,8 @@ namespace PhoneBook.Services
         public async Task<BaseResponse> GetPersonById(Guid id)
         {
             var person = await _context.Person.FindAsync(id);
+
+            Guard.IsNull(person, new PersonNotFoundException(id));
 
             return new BaseResponse(person);
         }
