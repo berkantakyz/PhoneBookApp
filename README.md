@@ -21,12 +21,12 @@ Projenin düzgün çalışabilmesi için PostgreSQL ve Kafka'nın bilgisayarın�
 
 Veritabanı bağlantı ayarları appsettings.json dosyasında yer almaktadır. Veritabanı bağlantı dizesini kendi bilgisayarınıza uygun şekilde güncelleyin:
 
-json
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "Host=localhost;Port=5432;Username=myuser;Password=mypassword;Database=PhoneBookDb;"
-  }
-}
+    json
+    {
+      "ConnectionStrings": {
+        "DefaultConnection": "Host=localhost;Port=5432;Username=userName;Password=password;Database=PhoneBook;"
+      }
+    }
 
 3. Migration ve Veritabanı Güncellemesi
 
@@ -34,13 +34,13 @@ Projenin veritabanı şeması ve başlangıç verileri için migration işlemi y
 
   3.1. Migration'ı Uygulama:
    
-     "dotnet ef database update"
+     dotnet ef database update
    
-     Bu komut veritabanını güncelleyecek ve gerekli tabloları oluşturacaktır.
+  Bu komut veritabanını güncelleyecek ve gerekli tabloları oluşturacaktır.
 
   3.2. Enum Değerlerinin Veritabanına Eklenmesi:
 
-     ContactInfoTypeEnum ve ReportStatusEnum enum değerleri veritabanına eklenmelidir. PostgreSQL'e aşağıdaki SQL komutlarını çalıştırarak bu verileri ekleyebilirsiniz:
+  ContactInfoTypeEnum ve ReportStatusEnum enum değerleri veritabanına eklenmelidir. PostgreSQL'e aşağıdaki SQL komutlarını çalıştırarak bu verileri ekleyebilirsiniz:
 
      insert into public."ReportStatus" values (1, 'Bekliyor');
      insert into public."ReportStatus" values (2, 'Tamamlandı');
@@ -50,7 +50,7 @@ Projenin veritabanı şeması ve başlangıç verileri için migration işlemi y
      insert into public."ContactInfoType" values (2, 'PhoneNumber');
      insert into public."ContactInfoType" values (3, 'MailAddress');
    
-     Bu sorgular, veritabanına enum değerlerini ekleyecek ve sistemin doğru çalışabilmesini sağlayacaktır.
+  Bu sorgular, veritabanına enum değerlerini ekleyecek ve sistemin doğru çalışabilmesini sağlayacaktır.
 
 4. Kafka Ayarları
 
@@ -59,7 +59,7 @@ Proje Kafka kullanmaktadır ve aşağıdaki ayarları doğru bir şekilde yapıl
 1. Kafka'nın doğru şekilde çalıştığından emin olun. Kafka'yı *localhost:9092* üzerinden dinleyecek şekilde kurmanız gerekmektedir.
 2. Kafka'nın doğru şekilde başlatıldığından emin olmak için aşağıdaki komutu kullanabilirsiniz:
 
-   "kafka-server-start.bat config/server.properties"
+       kafka-server-start.bat config/server.properties
 
 5. API'yi Kullanma
 
