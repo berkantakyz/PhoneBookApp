@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\PhoneBook.Common\PhoneBook.Common.csproj" />
     <ProjectReference Include="..\PhoneBook.Data\PhoneBook.Data.csproj" />
   </ItemGroup>
