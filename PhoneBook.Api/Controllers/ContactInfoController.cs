@@ -18,10 +18,8 @@ namespace PhoneBook.Api.Controllers
         [HttpPost("CreateContactInfo")]
         public async Task<IActionResult> CreateContactInfo(CreateContactInfoRequest request) => Ok(await _contactInfoService.CreateContactInfoAsync(request));
 
-
         [HttpDelete("DeleteContactInfo")]
         public async Task<IActionResult> DeleteContactInfo(Guid id) => Ok(await _contactInfoService.DeleteContactInfoAsync(id));
-
 
         [HttpGet("GetContactInfo")]
         public async Task<IActionResult> GetContactInfo(Guid personId) => Ok(await _contactInfoService.GetContactInfosByPersonIdAsync(personId));

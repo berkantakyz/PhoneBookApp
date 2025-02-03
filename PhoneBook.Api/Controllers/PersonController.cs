@@ -20,7 +20,6 @@ namespace PhoneBook.Api.Controllers
 
         [HttpDelete("DeletePerson")]
         public async Task<IActionResult> DeletePerson(Guid id) => Ok(await _personService.DeletePerson(id));
-     
 
         [HttpGet("GetAllPersons")]
         public async Task<IActionResult> GetAllPersons() => Ok(await _personService.GetPersons());

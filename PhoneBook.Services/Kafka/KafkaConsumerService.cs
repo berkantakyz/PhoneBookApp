@@ -7,13 +7,16 @@ namespace PhoneBook.Services.Kafka
     {
         bool isFirst = false;
 
-       
+        IReportService _reportService;
 
         private readonly string _brokerList = "localhost:9092";
         private readonly string _topicName = "report-requests";
         private readonly string _groupId = "report-consumers";
 
-        
+        public KafkaConsumerService(IReportService reportService)
+        {
+            _reportService = reportService;
+        }
 
         public async Task ConsumeMessages(CancellationToken cancellationToken)
         {
@@ -36,7 +39,7 @@ namespace PhoneBook.Services.Kafka
 
                         if (result != null)
                         {
-                          
+                            await _reportService.CreateReport(result.Message.Value);
 
                             Console.WriteLine($"Rapor oluşturuldu : {result.Message.Value}");
                         }

@@ -14,7 +14,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddScoped<IPersonService, PersonService>();
 builder.Services.AddScoped<IContactInfoService, ContactInfoService>();
-
+builder.Services.AddScoped<IReportService, ReportService>();
 builder.Services.AddScoped<IKafkaService, KafkaService>();
 builder.Services.AddScoped<IKafkaConsumerService, KafkaConsumerService>();
 
